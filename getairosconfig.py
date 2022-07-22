@@ -6,9 +6,9 @@ import getpass
 import ipaddress
 
 #Prompts for login information
-USERNAME = input("Enter Username: ")
+uservar = input("Enter Username: ")
 #using getpass to mask password.
-PASSWORD = getpass.getpass("Enter Password: ")
+passvar = getpass.getpass("Enter Password: ")
 
 #Bypass insecure request warning 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -36,8 +36,8 @@ for ip in ip_addr:
             r = s.post(
                 url=login_url.format(ip),
                 data={
-                'username': USERNAME,
-                'password': PASSWORD, 
+                'username': uservar,
+                'password': passvar, 
                 },
                 verify=False,
                 timeout=2,
